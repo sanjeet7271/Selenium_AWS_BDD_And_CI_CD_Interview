@@ -1,5 +1,14 @@
 # CI/CD Pipeline Tricky Interview Questions & Answers (10+ Years SDET)
 
+    I would first make sure the automation framework is Maven-based and stored in Git. Then I would configure Jenkins with the required JDK, Maven, Git and necessary plugins, and securely configure the repository credentials.
+    I would create a Jenkins Pipeline and preferably maintain the pipeline configuration in a Jenkinsfile along with the automation code.
+    The pipeline would have stages such as Checkout, Build, Test Execution, Report Generation and Notification. During test execution, Jenkins would execute Maven commands such as `mvn clean test -Denv=qa`.
+    I would configure a Git webhook so that the pipeline is triggered automatically whenever code is committed. For large regression suites, I would use TestNG parallel execution or Jenkins parallel stages to reduce execution time.
+    After execution, I would publish JUnit/Surefire or Allure reports and archive screenshots and logs for failed tests. Finally, I would configure email or Teams/Slack notifications based on the pipeline status.
+    For different environments, I would parameterize the pipeline using values such as environment, browser and test suite, for example `-Denv=qa -Dbrowser=chrome`.
+    This gives us a complete CI/CD flow where every code change can trigger automated validation and the team gets immediate feedback on the quality of the build.
+
+
 ## 1. What is the biggest mistake teams make when implementing CI/CD?
 Many teams automate deployment without automating quality validation.
 
