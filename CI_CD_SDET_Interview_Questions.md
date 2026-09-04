@@ -8,6 +8,8 @@
     For different environments, I would parameterize the pipeline using values such as environment, browser and test suite, for example `-Denv=qa -Dbrowser=chrome`.
     This gives us a complete CI/CD flow where every code change can trigger automated validation and the team gets immediate feedback on the quality of the build.
 
+<img width="615" height="413" alt="image" src="https://github.com/user-attachments/assets/80619b19-91e7-44e6-b898-57824ecbc840" />
+
 
 ## 1. What is the biggest mistake teams make when implementing CI/CD?
 Many teams automate deployment without automating quality validation.
