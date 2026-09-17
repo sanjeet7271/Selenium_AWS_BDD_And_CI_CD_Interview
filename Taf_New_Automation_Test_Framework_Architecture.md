@@ -379,7 +379,9 @@ Smoke testing is executed in:
                               ▼
                         Allure Report
 ```
-## Break all framework part wise
+## Break all framework Part Wise
+    <img width="967" height="2306" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/8fa1520f-6389-463f-a140-1088293f1cfb" />
+
 
             ALLURE REPORT
             │
