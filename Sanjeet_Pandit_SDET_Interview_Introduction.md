@@ -96,8 +96,7 @@ product quality.
 
 ------------------------------------------------------------------------
 
-## 4. Framework structure
-Below is the complete **`.md` file content**. Save it as `Java_8_New_Features_Interview.md`.
+## 4. Java 8 New Features
 
 ````md
 # Java 8 New Features — SDET Interview Guide
