@@ -1,7 +1,7 @@
 # CI/CD Pipeline — Text Diagram
 
-  I create a CI/CD pipeline using **Git, Webhook, Jenkins, Maven, and TestNG**.
-  **Flow:**
+  I create a CI/CD pipeline using Git, Webhook, Jenkins, Maven, and TestNG.
+  Flow:
   **Developer → Git → Webhook → Jenkins → Jenkinsfile → Build → Test → Report → Deploy → Notify**
   1. **Code Commit:** Developer pushes code to Git.
   2. **Webhook:** Git webhook automatically triggers the Jenkins pipeline whenever code is pushed.
