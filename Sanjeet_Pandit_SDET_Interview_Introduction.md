@@ -96,25 +96,7 @@ product quality.
 
 ------------------------------------------------------------------------
 
-## 4. Interview Practice Topics
-
-For the PayPay Card interview, be ready to answer questions on:
-
--   Your current project and responsibilities.
--   Your automation framework architecture.
--   A challenging defect or automation problem you solved.
--   Your experience handling a team.
--   Why you want to join PayPay Card.
--   How you design a framework from scratch.
--   How you handle parallel execution and thread safety.
--   How you integrate automation with Jenkins.
--   How you troubleshoot flaky tests.
--   How you combine UI, API, and database validation.
-
-## Practice Tip
-
-Deliver the introduction naturally in approximately **90 seconds to 2
-minutes**.
+## 4. Framework structure
 
 Do not memorize every word. Understand the flow and be prepared to
 explain the technical details behind your experience.
