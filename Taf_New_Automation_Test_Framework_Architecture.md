@@ -379,6 +379,54 @@ Smoke testing is executed in:
                               ▼
                         Allure Report
 ```
+## Break all framework part wise
+
+            ALLURE REPORT
+            │
+            ├── 1. Execution Summary
+            │   ├── Total Tests
+            │   ├── Passed
+            │   ├── Failed
+            │   ├── Broken
+            │   ├── Skipped
+            │   ├── Flaky / Retried
+            │   └── Execution Duration
+            │
+            ├── 2. Failure Classification
+            │   ├── Application Issue
+            │   ├── Automation Defect
+            │   ├── Synchronization Issue
+            │   ├── Flaky Test
+            │   ├── Test Data Issue
+            │   ├── Environment Issue
+            │   ├── API / Integration Issue
+            │   ├── Configuration Issue
+            │   └── Unknown / Needs Investigation
+            │
+            ├── 3. Failure Details
+            │   ├── Test Name
+            │   ├── Module
+            │   ├── Failure Category
+            │   ├── Failure Reason
+            │   ├── Root Cause
+            │   ├── Severity
+            │   ├── Owner
+            │   ├── Defect ID
+            │   ├── Screenshot
+            │   ├── Logs
+            │   ├── API Request / Response
+            │   └── Stack Trace
+            │
+            └── 4. Execution Metadata
+                ├── Environment
+                ├── Browser
+                ├── Build Number
+                ├── Git Commit
+                ├── Execution Date
+                └── Framework Version
+
+
+
 
 ## 8. Interview Explanation
 
