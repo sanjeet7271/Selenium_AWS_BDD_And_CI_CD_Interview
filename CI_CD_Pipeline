@@ -2,47 +2,46 @@
 
 ## Complete Pipeline Flow
 
-```text
-Developer
-   |
-   | 1. Git Push / Commit
-   v
-Git Repository
-   |
-   | 2. Webhook Trigger
-   v
-Jenkins
-   |
-   | 3. Read Jenkinsfile
-   v
-Jenkinsfile
-   |
-   +--> 4. Checkout
-   |
-   +--> 5. Build
-   |       |
-   |       +--> Maven
-   |
-   +--> 6. Test Execution
-   |       |
-   |       +--> TestNG
-   |       +--> Selenium / API Tests
-   |
-   +--> 7. Generate Reports
-   |       |
-   |       +--> Allure / Surefire
-   |
-   +--> 8. Test Result
-   |       |
-   |       +---- PASS ----> 9. Deploy
-   |       |                    |
-   |       |                    v
-   |       |                 QA / UAT / PROD
-   |       |
-   |       +---- FAIL ----> Stop Pipeline
-   |
-   v
-10. Notification
-        |
-        +--> Email
-        +--> Teams / Slack
+                                             Developer
+                                                |
+                                                | 1. Git Push / Commit
+                                                v
+                                             Git Repository
+                                                |
+                                                | 2. Webhook Trigger
+                                                v
+                                             Jenkins
+                                                |
+                                                | 3. Read Jenkinsfile
+                                                v
+                                             Jenkinsfile
+                                                |
+                                                +--> 4. Checkout
+                                                |
+                                                +--> 5. Build
+                                                |       |
+                                                |       +--> Maven
+                                                |
+                                                +--> 6. Test Execution
+                                                |       |
+                                                |       +--> TestNG
+                                                |       +--> Selenium / API Tests
+                                                |
+                                                +--> 7. Generate Reports
+                                                |       |
+                                                |       +--> Allure / Surefire
+                                                |
+                                                +--> 8. Test Result
+                                                |       |
+                                                |       +---- PASS ----> 9. Deploy
+                                                |       |                    |
+                                                |       |                    v
+                                                |       |                 QA / UAT / PROD
+                                                |       |
+                                                |       +---- FAIL ----> Stop Pipeline
+                                                |
+                                                v
+                                             10. Notification
+                                                     |
+                                                     +--> Email
+                                                     +--> Teams / Slack
