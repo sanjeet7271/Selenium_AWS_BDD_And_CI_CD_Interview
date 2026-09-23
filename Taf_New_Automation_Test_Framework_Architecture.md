@@ -1,5 +1,95 @@
 # Automation Test Framework Architecture
 
+                    AUTOMATION TESTING FRAMEWORK
+                              │
+                              ▼
+                 ┌──────────────────────────┐
+                 │       TestNG XML         │
+                 │  Module-wise Test Suites │
+                 │  10–50 Test Cases/Module │
+                 └────────────┬─────────────┘
+                              │
+                              ▼
+                 ┌──────────────────────────┐
+                 │     Data Provider        │
+                 │   data_provider.java     │
+                 │                          │
+                 │ • Reads JSON test data   │
+                 │ • Reads user details     │
+                 │ • Provides data to tests │
+                 └────────────┬─────────────┘
+                              │
+                              ▼
+                 ┌──────────────────────────┐
+                 │       PRECONDITION       │◄──────────────┐
+                 │                          │               │
+                 │ • user_details.json      │               │
+                 │ • Dev.json               │               │
+                 │ • Test setup / prechecks │               │
+                 └────────────┬─────────────┘               │
+                              │                             │
+                              ▼                             │
+                 ┌──────────────────────────┐     ┌─────────────────────┐
+                 │       Test_Case.java     │     │     BasePage.java   │
+                 │                          │     │                     │
+                 │ • Business test logic    │     │ • Browser setup     │
+                 │ • Different test cases   │     │ • Browser selection │
+                 │ • Test scenarios         │     │ • Headless mode     │
+                 └────────────┬─────────────┘     │ • Parallel execution│
+                              │                   │ • Reporting          │
+                              ▼                   │ • Screenshots       │
+                 ┌──────────────────────────┐     │ • Common setup      │
+                 │       Test_Step.java     │     └─────────────────────┘
+                 │                          │               ▲
+                 │ • Test step definitions  │               │
+                 │ • Calls page methods     │               │
+                 │ • Business flow handling │               │
+                 └────────────┬─────────────┘               │
+                              │                             │
+                              ▼                             │
+                 ┌──────────────────────────┐               │
+                 │       Test_Pages.java    │               │
+                 │                          │               │
+                 │ • Page Objects           │               │
+                 │ • UI interactions        │               │
+                 │ • Business functionality │               │
+                 └────────────┬─────────────┘               │
+                              │                             │
+                ┌─────────────┼──────────────┐              │
+                │             │              │              │
+                ▼             ▼              ▼              │
+        ┌────────────┐ ┌────────────┐ ┌────────────┐       │
+        │    API     │ │     DB     │ │    PDF     │       │
+        │ RestAssured│ │ Database   │ │ PDFUtility │       │
+        │            │ │            │ │            │       │
+        │ GET/POST   │ │ DB connect │ │ Parse PDF  │       │
+        │ PUT/DELETE │ │ SQL query  │ │ Extract    │       │
+        └─────┬──────┘ └─────┬──────┘ └─────┬──────┘       │
+              │              │              │               │
+              └──────────────┼──────────────┘               │
+                             ▼                              │
+                 ┌──────────────────────────┐               │
+                 │   Test_Assertion.java    │               │
+                 │                          │               │
+                 │ • Expected vs Actual     │               │
+                 │ • UI validation          │               │
+                 │ • API validation         │               │
+                 │ • DB validation          │               │
+                 │ • PDF validation         │               │
+                 └────────────┬─────────────┘               │
+                              │                             │
+                              ▼                             │
+                 ┌──────────────────────────┐               │
+                 │     Common Utility       │               │
+                 │                          │               │
+                 │ • Constants              │               │
+                 │ • Date/Time utility      │               │
+                 │ • Logging                │               │
+                 │ • Reporting              │               │
+                 │ • Reusable utilities     │               │
+                 └──────────────────────────┘               │
+
+
 ## 1. Framework Architecture
 
 ``` text
