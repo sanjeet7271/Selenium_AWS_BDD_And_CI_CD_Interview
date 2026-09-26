@@ -518,7 +518,23 @@ Smoke testing is executed in:
                 └── Framework Version
 
 
-
+## Problem in Framework designing
+  1. Parallel execution and WebDriver conflicts
+  2. Flaky tests
+  3. Maintainability of Page Objects
+  4. Test data management
+  5. Environment configuration
+  6. API + UI + Database validation
+  7. CI/CD integration
+  8. Reporting and failure diagnosis
+  9. Dynamic locators and changing UI
+  10. Test dependency and execution order
+  11. Handling external system failures
+  12. Cross-browser execution
+  13. Duplicate code
+  14. Secure handling of credentials
+  15. Test suite execution time
+  16. 
 
 ## 8. Interview Explanation
 
