@@ -147,7 +147,6 @@ In test automation, I use Docker to create a consistent environment containing J
 
 Selenium Grid allows Selenium tests to execute browsers remotely and in parallel across different machines, environments, or containers.
 
-```text
 Test
  |
  v
@@ -191,7 +190,6 @@ driver.get("https://example.com");
 
 ### Simple explanation
 
-```text
 Local WebDriver
 Test -> Local Browser
 
@@ -209,7 +207,6 @@ RemoteWebDriver allows my automation code to communicate with a browser running 
 
 Selenium Grid then distributes the browser session to an available node.
 
-```text
 Automation Test
       |
       v
@@ -272,7 +269,6 @@ Without proper driver isolation, multiple parallel tests may try to use the same
 
 With ThreadLocal:
 
-```text
 Thread-1 -> Driver-1
 Thread-2 -> Driver-2
 Thread-3 -> Driver-3
@@ -280,7 +276,6 @@ Thread-3 -> Driver-3
 
 Each thread gets its own driver.
 
----
 
 ## Q7. What is ThreadGuard in Selenium?
 
@@ -322,7 +317,6 @@ They solve different problems.
 
 They can be used together.
 
-```text
 Thread
   |
   v
@@ -330,9 +324,6 @@ ThreadLocal
   |
   v
 ThreadGuard-protected WebDriver
-```
-
----
 
 ## Q9. Are ThreadLocal and Docker similar?
 
@@ -340,7 +331,6 @@ ThreadGuard-protected WebDriver
 
 No. They provide isolation at different levels.
 
-```text
 ThreadLocal
     -> Thread-level isolation
     -> Java/JVM mechanism
@@ -364,7 +354,7 @@ Yes.
 
 A typical architecture is:
 
-```text
+
 Jenkins
    |
    v
@@ -390,7 +380,6 @@ Docker provides environment isolation, while ThreadLocal provides driver/thread 
 
 A typical flow is:
 
-```text
 Parallel Test Thread
         |
         v
@@ -411,13 +400,10 @@ Parallel Test Thread
 
 For example:
 
-```text
 Thread-1 -> ThreadLocal -> ThreadGuard -> RemoteWebDriver -> Chrome
 Thread-2 -> ThreadLocal -> ThreadGuard -> RemoteWebDriver -> Firefox
 Thread-3 -> ThreadLocal -> ThreadGuard -> RemoteWebDriver -> Edge
-```
 
----
 
 ## Q12. How does Jenkins fit into this architecture?
 
@@ -427,7 +413,6 @@ Jenkins acts as the CI/CD orchestration layer.
 
 A typical pipeline is:
 
-```text
 Git
  |
  v
@@ -491,7 +476,6 @@ docker run selenium-automation
 
 For Grid-based execution, the test container can connect to a Selenium Grid running separately.
 
----
 
 ## Q14. How do you execute parallel tests using Selenium Grid?
 
@@ -499,7 +483,6 @@ For Grid-based execution, the test container can connect to a Selenium Grid runn
 
 I use TestNG/Cucumber parallel execution and create a separate WebDriver session for each test thread.
 
-```text
                   Selenium Grid
                   /     |      \
                  /      |       \
@@ -511,11 +494,10 @@ I use TestNG/Cucumber parallel execution and create a separate WebDriver session
                 ^       ^        ^
                 |       |        |
              Thread1 Thread2 Thread3
-```
+
 
 ThreadLocal keeps the driver associated with its corresponding thread.
 
----
 
 ## Q15. What happens if multiple threads use the same WebDriver?
 
@@ -525,11 +507,9 @@ Tests can interfere with each other.
 
 For example:
 
-```text
 Thread-1 -> Driver
 Thread-2 -> Same Driver
 Thread-3 -> Same Driver
-```
 
 Possible problems:
 
@@ -542,13 +522,11 @@ Possible problems:
 
 The solution is to use separate WebDriver instances per thread.
 
----
 
 ## Q16. What is the complete execution flow?
 
 ### Answer
 
-```text
 Developer
    |
    v
@@ -595,7 +573,6 @@ Selenium Grid
 
 > "In my automation framework, Jenkins triggers the test execution from the CI/CD pipeline. The tests can run inside Docker to maintain a consistent execution environment. Cucumber and TestNG manage the test execution and parallel scenarios. For parallel execution, I use ThreadLocal to maintain a separate WebDriver instance for each thread, and ThreadGuard can be used to prevent cross-thread WebDriver access. For remote execution, the framework creates RemoteWebDriver sessions that connect to Selenium Grid. Grid distributes those sessions across Chrome, Firefox, or Edge nodes, which can also run in Docker containers. After execution, Jenkins collects the reports and publishes the results."
 
----
 
 # Q18. What is the difference between Docker, Selenium Grid and RemoteWebDriver?
 
@@ -608,7 +585,6 @@ Selenium Grid
 | ThreadGuard     | Protects WebDriver from cross-thread access   |
 | Jenkins         | Automates and orchestrates CI/CD execution    |
 
----
 
 # Q19. Can Selenium Grid work without Docker?
 
@@ -627,9 +603,7 @@ Selenium Grid
    +-- VM
    +-- Docker Container
    +-- Cloud infrastructure
-```
 
----
 
 # Q20. Can Docker be used without Selenium Grid?
 
@@ -641,7 +615,6 @@ A Docker container can directly execute automation tests with a browser installe
 
 However, Selenium Grid is useful when we need distributed and scalable browser execution.
 
----
 
 # Q21. Can ThreadLocal be used without Docker?
 
@@ -658,11 +631,8 @@ Local Machine
     |
     +-- Thread 1 -> ThreadLocal -> Driver 1
     +-- Thread 2 -> ThreadLocal -> Driver 2
-```
 
 Docker is not required.
-
----
 
 # Q22. Why would you use all these technologies together?
 
@@ -695,7 +665,6 @@ Selenium Grid
 
 Together they create a scalable automation execution architecture.
 
----
 
 # Final Interview Cheat Sheet
 
@@ -725,11 +694,9 @@ Docker Browser Containers
 
 > **"Jenkins orchestrates the CI/CD pipeline, Docker provides an isolated execution environment, TestNG/Cucumber runs tests in parallel, ThreadLocal maintains one WebDriver per thread, ThreadGuard prevents cross-thread WebDriver access, RemoteWebDriver enables remote browser execution, and Selenium Grid distributes the sessions across browser nodes."**
 
----
 
 # Key Mental Model
 
-```text
 ThreadLocal   = Thread-level isolation
 ThreadGuard   = WebDriver thread-safety protection
 RemoteDriver  = Remote browser communication
@@ -753,5 +720,3 @@ Jenkins       = CI/CD orchestration
            Driver-1   Driver-2   Driver-3
               |          |          |
          ThreadGuard ThreadGuard ThreadGuard
-```
-```
