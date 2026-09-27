@@ -737,6 +737,21 @@ Selenium Grid = Distributed browser execution
 Docker        = Container/environment isolation
 Jenkins       = CI/CD orchestration
 ```
-
+                     Framework
+                         |
+        +----------------+----------------+
+        |                |                |
+        v                v                v
+ ConfigManager      DriverManager     TestDataManager
+ Singleton          Singleton         Singleton/utility
+                         |
+                         v
+                    ThreadLocal
+                         |
+              +----------+----------+
+              |          |          |
+           Driver-1   Driver-2   Driver-3
+              |          |          |
+         ThreadGuard ThreadGuard ThreadGuard
 ```
 ```
